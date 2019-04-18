@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="ulim.practice.board">
+	<logger name="ulim.board.controller">
 		<level value="info" />
 	</logger>
 	
