@@ -12,4 +12,12 @@
 		select * from board where boardpid=#{boardpid}
 	</select>
 	
+	<insert id="commentRegister">
+		insert into comment (boardpid,personpid,content,date) values (#{boardpid},#{personpid},#{content},#{date})
+	</insert>
+	
+	<select id="CommentInfo" resultType="practice.board.dto.Comment">
+		select * from comment where boardpid=#{boardpid}
+	</select>
+	
 </mapper>
