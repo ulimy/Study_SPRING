@@ -1,5 +1,6 @@
 package practice.board.controller;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,7 +23,7 @@ public class BoardController {
 	
 //  제품 조회
 	@RequestMapping(value="/info",produces="application/json;charset=UTF-8",method=RequestMethod.POST)
-	public @ResponseBody Board boardInfo(@RequestBody JSONObject obj) throws Exception{
+	public @ResponseBody JSONArray boardInfo(@RequestBody JSONObject obj) throws Exception{
 		
 		int boardpid = (Integer)obj.get("boardpid");
 		return service.boardInfo(boardpid);

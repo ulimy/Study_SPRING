@@ -16,7 +16,7 @@
 		insert into comment (boardpid,personpid,content,date) values (#{boardpid},#{personpid},#{content},#{date})
 	</insert>
 	
-	<select id="CommentInfo" resultType="practice.board.dto.Comment">
+	<select id="commentInfo" resultType="practice.board.dto.Comment">
 		select * from comment where boardpid=#{boardpid}
 	</select>
 	
