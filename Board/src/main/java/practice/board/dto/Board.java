@@ -1,19 +1,14 @@
-package ulim.board.dao;
+package practice.board.dto;
 
 import java.util.Date;
 
-public class Comment {
-	private int commentpid;
+public class Board {
 	private int boardpid;
 	private int personpid;
+	private String title;
 	private String content;
 	private Date date;
-	public int getCommentpid() {
-		return commentpid;
-	}
-	public void setCommentpid(int commentpid) {
-		this.commentpid = commentpid;
-	}
+	
 	public int getBoardpid() {
 		return boardpid;
 	}
@@ -26,6 +21,12 @@ public class Comment {
 	public void setPersonpid(int personpid) {
 		this.personpid = personpid;
 	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public String getContent() {
 		return content;
 	}
@@ -37,6 +38,11 @@ public class Comment {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	@Override
+	public String toString() {
+		return "Board [boardpid=" + boardpid + ", personpid=" + personpid + ", title=" + title + ", content=" + content
+				+ ", date=" + date + "]";
 	}
 	
 	
