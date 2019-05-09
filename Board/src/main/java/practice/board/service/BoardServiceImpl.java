@@ -33,5 +33,11 @@ public class BoardServiceImpl implements BoardService {
 		result.add(CommentDao.commentInfo(boardpid));
 		return result;
 	}
+	
+	@Override
+	public void boardDelete(int boardpid) throws Exception{
+		BoardDao.boardDelete(boardpid);
+		return;
+	}
 
 }

@@ -31,4 +31,11 @@ public class CommentController {
 		return service.commentInfo(boardpid);
 	}
 	
+	@RequestMapping(value="/delete",method=RequestMethod.POST)
+	public void commentDelete(@RequestBody JSONObject obj) throws Exception{
+		int commentpid = (Integer)obj.get("commentpid");
+		service.commentDelete(commentpid);
+		return;
+	}
+	
 }

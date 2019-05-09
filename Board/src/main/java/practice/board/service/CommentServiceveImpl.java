@@ -26,5 +26,11 @@ public class CommentServiceveImpl implements CommentService {
 		
 		return dao.commentInfo(boardpid);
 	}
+	
+	@Override
+	public void commentDelete(int commentpid) throws Exception{
+		dao.commentDelete(commentpid);
+		return;
+	}
 
 }

@@ -22,4 +22,9 @@ public class CommentDAOImpl implements CommentDAO {
 		return mapper.commentInfo(boardpid);
 	}
 
+	@Override
+	public void commentDelete(int commentpid) throws Exception{
+		mapper.commentDelete(commentpid);
+		return;
+	}
 }

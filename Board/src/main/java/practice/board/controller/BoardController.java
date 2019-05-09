@@ -39,4 +39,13 @@ public class BoardController {
 	
 	}
 	
+//	제품 삭제
+	@RequestMapping(value="/delete",method=RequestMethod.POST)
+	public void boardDelete(@RequestBody JSONObject obj) throws Exception{
+		
+		int boardpid = (Integer)obj.get("boardpid");
+		service.boardDelete(boardpid);
+		return;
+	}
+	
 }

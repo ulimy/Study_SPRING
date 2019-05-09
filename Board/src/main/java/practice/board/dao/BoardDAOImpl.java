@@ -22,5 +22,11 @@ public class BoardDAOImpl implements BoardDAO {
 	public Board boardInfo(int boardpid) throws Exception {
 		return mapper.boardInfo(boardpid);
 	}
+	
+	@Override
+	public void boardDelete(int boardpid) throws Exception {
+		mapper.boardDelete(boardpid);
+		return;
+	}
 
 }

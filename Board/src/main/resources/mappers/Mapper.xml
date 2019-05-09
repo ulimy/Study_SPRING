@@ -12,6 +12,10 @@
 		select * from board where boardpid=#{boardpid}
 	</select>
 	
+	<delete id="boardDelete">
+		delete from board where boardpid=#{boardpid}
+	</delete>
+	
 	<insert id="commentRegister">
 		insert into comment (boardpid,personpid,content,date) values (#{boardpid},#{personpid},#{content},#{date})
 	</insert>
@@ -19,5 +23,9 @@
 	<select id="commentInfo" resultType="practice.board.dto.Comment">
 		select * from comment where boardpid=#{boardpid}
 	</select>
+	
+	<delete id="commentDelete">
+		delete from comment where commentpid=#{commentpid}
+	</delete>
 	
 </mapper>

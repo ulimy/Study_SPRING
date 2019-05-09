@@ -9,7 +9,12 @@ public interface Mapper {
 	
 	public Board boardInfo(int boardpid);
 	
+	public void boardDelete(int boardpid);
+	
 	public void commentRegister(Comment comment);
 	
 	public Comment[] commentInfo(int boardpid);
+	
+	public void commentDelete(int commentpid);
+
 }

@@ -7,4 +7,6 @@ public interface CommentDAO {
 	public void commentRegister(Comment comment) throws Exception;
 	
 	public Comment[] commentInfo(int boardpid) throws Exception;
+	
+	public void commentDelete(int commentpid) throws Exception;
 }

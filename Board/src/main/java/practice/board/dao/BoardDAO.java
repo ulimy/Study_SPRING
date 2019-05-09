@@ -7,4 +7,6 @@ public interface BoardDAO {
 	public void boardRegister(Board board) throws Exception;
 	
 	public Board boardInfo(int boardpid) throws Exception;
+	
+	public void boardDelete(int boardpid) throws Exception;
 }
