@@ -3,14 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="practice.board.dao.Mapper">
-	
+
 	<insert id="boardRegister">
 		insert into board (personpid,title,content,date) values (#{personpid},#{title},#{content},#{date})
 	</insert>
 	
 	<select id="boardInfo" resultType="practice.board.dto.BoardInfoDTO">
 		select title,content,date, 
-		(select count(*) as goodcount from good where boardpid=#{boardpid})S1
+		(select count(*) as goodcount from good where boardpid=#{boardpid})GOODCOUNT
 		from board where boardpid=#{boardpid}
 	</select>
 	
@@ -29,5 +29,13 @@
 	<delete id="commentDelete">
 		delete from comment where commentpid=#{commentpid}
 	</delete>
+	
+	<insert id="goodRegister">
+		insert into good (boardpid,personpid) values (#{boardpid},#{personpid})
+	</insert>
+	
+	<delete id="goodDelete">
+		delete from good where boardpid=#{boardpid} and personpid=#{personpid}
+	</delete> 
 	
 </mapper>

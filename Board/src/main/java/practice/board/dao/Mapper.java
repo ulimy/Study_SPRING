@@ -12,12 +12,16 @@ public interface Mapper {
 	
 	public BoardInfoDTO boardInfo(@Param("boardpid")int boardpid,@Param("personpid")int personpid);
 	
-	public void boardDelete(int boardpid);
+	public void boardDelete(@Param("boardpid")int boardpid);
 	
 	public void commentRegister(CommentVO comment);
 	
-	public CommentVO[] commentInfo(int boardpid);
+	public CommentVO[] commentInfo(@Param("boardpid")int boardpid);
 	
-	public void commentDelete(int commentpid);
+	public void commentDelete(@Param("commentpid")int commentpid);
+	
+	public void goodRegister(@Param("boardpid")int boardpid,@Param("personpid")int personpid);
+	
+	public void goodDelete(@Param("boardpid")int boardpid,@Param("personpid")int personpid);
 
 }
