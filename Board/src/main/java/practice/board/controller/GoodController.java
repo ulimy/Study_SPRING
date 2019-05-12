@@ -1,5 +1,7 @@
 package practice.board.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,18 +21,16 @@ public class GoodController {
 	GoodService service;
 	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public void GoodRegister(@RequestBody JSONObject obj){
+	public void GoodRegister(@RequestBody JSONObject obj,HttpSession session){
 		int boardpid = (Integer)obj.get("boardpid");
-		int personpid = (Integer)obj.get("personpid");
-		service.goodRegister(boardpid, personpid);
+		service.goodRegister(boardpid, (Integer)session.getAttribute("personpid"));
 		return;
 	}
 	
 	@RequestMapping(value="delete",method=RequestMethod.POST)
-	public void GoodDelete(@RequestBody JSONObject obj){
+	public void GoodDelete(@RequestBody JSONObject obj,HttpSession session){
 		int boardpid = (Integer)obj.get("boardpid");
-		int personpid = (Integer)obj.get("personpid");
-		service.goodDelete(boardpid, personpid);
+		service.goodDelete(boardpid, (Integer)session.getAttribute("personpid"));
 		return;
 	}
 	

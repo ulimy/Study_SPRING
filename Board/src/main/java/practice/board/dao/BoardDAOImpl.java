@@ -1,12 +1,12 @@
 package practice.board.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import practice.board.dto.BoardInfoDTO;
 import practice.board.vo.BoardVO;
 
-@Component("BoardDAO")
+@Repository("BoardDAO")
 public class BoardDAOImpl implements BoardDAO {
 	
 	@Autowired

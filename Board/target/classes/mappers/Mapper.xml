@@ -4,13 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="practice.board.dao.Mapper">
 
+	<select id="login" resultType="Integer">
+		select personpid from profile where id=#{id} and password=#{password}
+	</select>
+
 	<insert id="boardRegister">
 		insert into board (personpid,title,content,date) values (#{personpid},#{title},#{content},#{date})
 	</insert>
 	
 	<select id="boardInfo" resultType="practice.board.dto.BoardInfoDTO">
 		select title,content,date, 
-		(select count(*) as goodcount from good where boardpid=#{boardpid})GOODCOUNT
+		(select count(*) as goodcount from good where boardpid=#{boardpid})GOODCOUNT,
+		(select exists (select idx from good where boardpid=#{boardpid} and personpid=#{personpid}) as good)GOOD
 		from board where boardpid=#{boardpid}
 	</select>
 	
@@ -22,7 +27,7 @@
 		insert into comment (boardpid,personpid,content,date) values (#{boardpid},#{personpid},#{content},#{date})
 	</insert>
 	
-	<select id="commentInfo" resultType="practice.board.vo.CommentVO">
+	<select id="commentInfo" resultType="practice.board.dto.CommentDTO">
 		select commentpid,content,date from comment where boardpid=#{boardpid}
 	</select>
 	

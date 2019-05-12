@@ -1,9 +1,9 @@
 package practice.board.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component("GoodDAO")
+@Repository("GoodDAO")
 public class GoodDAOImpl implements GoodDAO {
 	
 	@Autowired

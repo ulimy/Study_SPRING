@@ -1,11 +1,12 @@
 package practice.board.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
+import practice.board.dto.CommentDTO;
 import practice.board.vo.CommentVO;
 
-@Component("CommentDAO")
+@Repository("CommentDAO")
 public class CommentDAOImpl implements CommentDAO {
 	
 	@Autowired
@@ -18,7 +19,7 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 
 	@Override
-	public CommentVO[] commentInfo(int boardpid) throws Exception {
+	public CommentDTO[] commentInfo(int boardpid) throws Exception {
 		return mapper.commentInfo(boardpid);
 	}
 

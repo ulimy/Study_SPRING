@@ -1,5 +1,7 @@
 package practice.board.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,7 +23,8 @@ public class CommentController {
 	
 //	´ñ±Û µî·Ï
 	@RequestMapping(value="/register",produces="application/json;charset=UTF-8",method=RequestMethod.POST)
-	public void commentRegister(@RequestBody CommentVO comment) throws Exception{
+	public void commentRegister(@RequestBody CommentVO comment,HttpSession session) throws Exception{
+		comment.setPersonpid((Integer)session.getAttribute("personpid"));
 		service.commentRegister(comment);
 	}
 

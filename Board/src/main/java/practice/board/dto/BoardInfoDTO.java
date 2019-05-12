@@ -8,6 +8,7 @@ public class BoardInfoDTO {
 	private Date date;
 	private int goodcount;
 	private boolean good;
+	
 	public String getTitle() {
 		return title;
 	}

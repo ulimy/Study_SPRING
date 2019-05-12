@@ -1,5 +1,7 @@
 package practice.board.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,29 +23,25 @@ public class BoardController {
 	@Qualifier("BoardService")
 	private BoardService service;
 	
+	
 //  力前 炼雀
 	@RequestMapping(value="/info",produces="application/json;charset=UTF-8",method=RequestMethod.POST)
-	public @ResponseBody JSONArray boardInfo(@RequestBody JSONObject obj) throws Exception{
-		
+	public @ResponseBody JSONArray boardInfo(@RequestBody JSONObject obj,HttpSession session) throws Exception{
 		int boardpid = (Integer)obj.get("boardpid");
-		int personpid = (Integer)obj.get("personpid");
-		return service.boardInfo(boardpid,personpid);
-		
+		return service.boardInfo(boardpid,(Integer)session.getAttribute("personpid"));
 	}
 	
 //	力前 殿废
 	@RequestMapping(value="/register",produces="application/json;charset=UTF-8",method=RequestMethod.POST)
-	public void boadRegister(@RequestBody BoardVO board) throws Exception{
-		
+	public void boadRegister(@RequestBody BoardVO board,HttpSession session) throws Exception{	
+		board.setPersonpid((Integer)session.getAttribute("personpid"));
 		service.boardRegiser(board);
 		return;
-	
 	}
 	
 //	力前 昏力
 	@RequestMapping(value="/delete",method=RequestMethod.POST)
 	public void boardDelete(@RequestBody JSONObject obj) throws Exception{
-		
 		int boardpid = (Integer)obj.get("boardpid");
 		service.boardDelete(boardpid);
 		return;
