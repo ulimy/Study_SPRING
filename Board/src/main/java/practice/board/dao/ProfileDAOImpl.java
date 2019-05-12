@@ -14,4 +14,10 @@ public class ProfileDAOImpl implements ProfileDAO {
 		return mapper.login(id, password);	
 	}
 	
+	@Override
+	public void signup(String id, String password){
+		mapper.signup(id, password);
+		return;
+	}
+	
 }

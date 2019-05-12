@@ -19,7 +19,12 @@ public class ProfileController {
 	@Autowired
 	@Qualifier("ProfileService")
 	ProfileService service;
-
+	
+	@RequestMapping(value="/signup",method=RequestMethod.POST)
+	public void singup(@RequestBody ProfileVO profile){
+		service.signup(profile);
+		return;
+	}
 
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public void login(@RequestBody ProfileVO profile,HttpSession session){

@@ -7,6 +7,11 @@
 	<select id="login" resultType="Integer">
 		select personpid from profile where id=#{id} and password=#{password}
 	</select>
+	
+	<insert id="singup">
+		insert into profile (id,password) values (#{id},#{password})
+		where not exists (select personpid from profile where id=#{id} and password=#{password})
+	</insert>
 
 	<insert id="boardRegister">
 		insert into board (personpid,title,content,date) values (#{personpid},#{title},#{content},#{date})

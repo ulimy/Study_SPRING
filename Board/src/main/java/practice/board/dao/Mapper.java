@@ -10,6 +10,8 @@ import practice.board.vo.CommentVO;
 public interface Mapper {
 	
 	public int login(@Param("id")String id, @Param("password")String password);
+	
+	public void signup(@Param("id")String id, @Param("password")String password);
 
 	public void boardRegister(BoardVO board);
 	

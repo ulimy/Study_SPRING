@@ -18,5 +18,12 @@ public class ProfileServiceImpl implements ProfileService {
 	public int login(ProfileVO profile) {
 		return dao.login(profile.getId(), profile.getPassword());
 	}
+	
+	@Override
+	public void signup(ProfileVO profile){
+		dao.signup(profile.getId(), profile.getPassword());
+		return;
+	}
+	
 
 }
