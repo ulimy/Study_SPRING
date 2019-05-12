@@ -8,8 +8,10 @@
 		insert into board (personpid,title,content,date) values (#{personpid},#{title},#{content},#{date})
 	</insert>
 	
-	<select id="boardInfo" resultType="practice.board.dto.Board">
-		select * from board where boardpid=#{boardpid}
+	<select id="boardInfo" resultType="practice.board.dto.BoardInfoDTO">
+		select title,content,date, 
+		(select count(*) as goodcount from good where boardpid=#{boardpid})S1
+		from board where boardpid=#{boardpid}
 	</select>
 	
 	<delete id="boardDelete">
@@ -20,8 +22,8 @@
 		insert into comment (boardpid,personpid,content,date) values (#{boardpid},#{personpid},#{content},#{date})
 	</insert>
 	
-	<select id="commentInfo" resultType="practice.board.dto.Comment">
-		select * from comment where boardpid=#{boardpid}
+	<select id="commentInfo" resultType="practice.board.vo.CommentVO">
+		select commentpid,content,date from comment where boardpid=#{boardpid}
 	</select>
 	
 	<delete id="commentDelete">

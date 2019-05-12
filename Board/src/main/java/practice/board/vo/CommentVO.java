@@ -1,13 +1,14 @@
-package practice.board.dto;
+package practice.board.vo;
 
 import java.util.Date;
 
-public class Comment {
+public class CommentVO {
 	int commentpid;
 	int boardpid;
 	int personpid;
 	String content;
 	Date date;
+	
 	public int getCommentpid() {
 		return commentpid;
 	}

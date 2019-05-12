@@ -1,12 +1,12 @@
 package practice.board.dao;
 
-import practice.board.dto.Comment;
+import practice.board.vo.CommentVO;
 
 public interface CommentDAO {
 	
-	public void commentRegister(Comment comment) throws Exception;
+	public void commentRegister(CommentVO comment) throws Exception;
 	
-	public Comment[] commentInfo(int boardpid) throws Exception;
+	public CommentVO[] commentInfo(int boardpid) throws Exception;
 	
 	public void commentDelete(int commentpid) throws Exception;
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import practice.board.dao.BoardDAO;
 import practice.board.dao.CommentDAO;
-import practice.board.dto.Board;
+import practice.board.vo.BoardVO;
 
 @Service("BoardService")
 public class BoardServiceImpl implements BoardService {
@@ -21,15 +21,15 @@ public class BoardServiceImpl implements BoardService {
 	private CommentDAO CommentDao;
 
 	@Override
-	public void boardRegiser(Board board) throws Exception {
+	public void boardRegiser(BoardVO board) throws Exception {
 		BoardDao.boardRegister(board);
 		return;
 	}
 
 	@Override
-	public JSONArray boardInfo(int boardpid) throws Exception {
+	public JSONArray boardInfo(int boardpid,int personpid) throws Exception {
 		JSONArray result = new JSONArray();
-		result.add(BoardDao.boardInfo(boardpid));
+		result.add(BoardDao.boardInfo(boardpid,personpid));
 		result.add(CommentDao.commentInfo(boardpid));
 		return result;
 	}

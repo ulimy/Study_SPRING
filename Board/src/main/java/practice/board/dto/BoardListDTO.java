@@ -2,25 +2,22 @@ package practice.board.dto;
 
 import java.util.Date;
 
-public class Board {
+public class BoardListDTO {
 	private int boardpid;
-	private int personpid;
 	private String title;
 	private String content;
 	private Date date;
+	private int likecount;
+	private boolean like;
 	
 	public int getBoardpid() {
 		return boardpid;
 	}
+	
 	public void setBoardpid(int boardpid) {
 		this.boardpid = boardpid;
 	}
-	public int getPersonpid() {
-		return personpid;
-	}
-	public void setPersonpid(int personpid) {
-		this.personpid = personpid;
-	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -39,11 +36,7 @@ public class Board {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	@Override
-	public String toString() {
-		return "Board [boardpid=" + boardpid + ", personpid=" + personpid + ", title=" + title + ", content=" + content
-				+ ", date=" + date + "]";
-	}
+
 	
 	
 }

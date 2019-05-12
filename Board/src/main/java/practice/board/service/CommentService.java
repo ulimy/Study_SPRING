@@ -1,12 +1,10 @@
 package practice.board.service;
 
-import practice.board.dto.Comment;
+import practice.board.vo.CommentVO;
 
 public interface CommentService {
 	
-	public void commentRegister(Comment comment) throws Exception;
-	
-	public Comment[] commentInfo(int boardpid) throws Exception;
+	public void commentRegister(CommentVO comment) throws Exception;
 	
 	public void commentDelete(int commnetpid) throws Exception;
 }

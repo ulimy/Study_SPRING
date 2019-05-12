@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import practice.board.dao.CommentDAO;
-import practice.board.dto.Comment;
+import practice.board.vo.CommentVO;
 
 @Service("CommentService")
 public class CommentServiceveImpl implements CommentService {
@@ -15,16 +15,10 @@ public class CommentServiceveImpl implements CommentService {
 	private CommentDAO dao;
 
 	@Override
-	public void commentRegister(Comment comment) throws Exception{
+	public void commentRegister(CommentVO comment) throws Exception{
 		
 		dao.commentRegister(comment);
 		return;
-	}
-
-	@Override
-	public Comment[] commentInfo(int boardpid) throws Exception {
-		
-		return dao.commentInfo(boardpid);
 	}
 	
 	@Override

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import practice.board.dto.Board;
 import practice.board.service.BoardService;
+import practice.board.vo.BoardVO;
 
 @Controller
 @RequestMapping(value="/board")
@@ -26,13 +26,14 @@ public class BoardController {
 	public @ResponseBody JSONArray boardInfo(@RequestBody JSONObject obj) throws Exception{
 		
 		int boardpid = (Integer)obj.get("boardpid");
-		return service.boardInfo(boardpid);
+		int personpid = (Integer)obj.get("personpid");
+		return service.boardInfo(boardpid,personpid);
 		
 	}
 	
 //	제품 등록
 	@RequestMapping(value="/register",produces="application/json;charset=UTF-8",method=RequestMethod.POST)
-	public void boadRegister(@RequestBody Board board) throws Exception{
+	public void boadRegister(@RequestBody BoardVO board) throws Exception{
 		
 		service.boardRegiser(board);
 		return;

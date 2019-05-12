@@ -1,19 +1,22 @@
 package practice.board.dao;
 
-import practice.board.dto.Board;
-import practice.board.dto.Comment;
+import org.apache.ibatis.annotations.Param;
+
+import practice.board.dto.BoardInfoDTO;
+import practice.board.vo.BoardVO;
+import practice.board.vo.CommentVO;
 
 public interface Mapper {
 
-	public void boardRegister(Board board);
+	public void boardRegister(BoardVO board);
 	
-	public Board boardInfo(int boardpid);
+	public BoardInfoDTO boardInfo(@Param("boardpid")int boardpid,@Param("personpid")int personpid);
 	
 	public void boardDelete(int boardpid);
 	
-	public void commentRegister(Comment comment);
+	public void commentRegister(CommentVO comment);
 	
-	public Comment[] commentInfo(int boardpid);
+	public CommentVO[] commentInfo(int boardpid);
 	
 	public void commentDelete(int commentpid);
 

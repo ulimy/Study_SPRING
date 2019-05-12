@@ -3,7 +3,8 @@ package practice.board.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import practice.board.dto.Board;
+import practice.board.dto.BoardInfoDTO;
+import practice.board.vo.BoardVO;
 
 @Component("BoardDAO")
 public class BoardDAOImpl implements BoardDAO {
@@ -12,15 +13,15 @@ public class BoardDAOImpl implements BoardDAO {
 	private Mapper mapper;
 	
 	@Override
-	public void boardRegister(Board board) throws Exception {
+	public void boardRegister(BoardVO board) throws Exception {
 		mapper.boardRegister(board);
 		return;
 
 	}
 
 	@Override
-	public Board boardInfo(int boardpid) throws Exception {
-		return mapper.boardInfo(boardpid);
+	public BoardInfoDTO boardInfo(int boardpid,int personpid) throws Exception {
+		return mapper.boardInfo(boardpid,personpid);
 	}
 	
 	@Override
