@@ -27,7 +27,7 @@ public class GoodController {
 		return;
 	}
 	
-	@RequestMapping(value="delete",method=RequestMethod.POST)
+	@RequestMapping(value="/delete",method=RequestMethod.POST)
 	public void GoodDelete(@RequestBody JSONObject obj,HttpSession session){
 		int boardpid = (Integer)obj.get("boardpid");
 		service.goodDelete(boardpid, (Integer)session.getAttribute("personpid"));
