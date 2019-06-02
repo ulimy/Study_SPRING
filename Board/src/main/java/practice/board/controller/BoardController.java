@@ -28,7 +28,7 @@ public class BoardController {
 	@RequestMapping(value="/info",produces="application/json;charset=UTF-8",method=RequestMethod.POST)
 	public @ResponseBody JSONArray boardInfo(@RequestBody JSONObject obj,HttpSession session) throws Exception{
 		int boardpid = (Integer)obj.get("boardpid");
-		return service.boardInfo(boardpid,(Integer)session.getAttribute("personpid"));
+		return service.boardInfo(boardpid,1);
 	}
 	
 //	제품 등록
